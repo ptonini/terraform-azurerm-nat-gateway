@@ -2,7 +2,7 @@ variable "name" {}
 
 variable "rg" {
   type = object({
-    name = string
+    name     = string
     location = string
   })
 }
