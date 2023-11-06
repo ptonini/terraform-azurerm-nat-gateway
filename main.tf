@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "this" {
-  name                = "${var.name}-nat-gateway"
+  name                = "${var.name}-public-ip"
   resource_group_name = var.rg.name
   location            = var.rg.location
   allocation_method   = "Static"
@@ -8,7 +8,10 @@ resource "azurerm_public_ip" "this" {
   zones               = [1, 2, 3]
   lifecycle {
     ignore_changes = [
-      tags
+      tags.business_unit,
+      tags.environment,
+      tags.product,
+      tags.subscription_type
     ]
   }
 }
@@ -19,7 +22,10 @@ resource "azurerm_nat_gateway" "this" {
   location            = var.rg.location
   lifecycle {
     ignore_changes = [
-      tags
+      tags.business_unit,
+      tags.environment,
+      tags.product,
+      tags.subscription_type
     ]
   }
 }
