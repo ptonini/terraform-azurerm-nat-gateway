@@ -8,10 +8,10 @@ resource "azurerm_public_ip" "this" {
   zones               = [1, 2, 3]
   lifecycle {
     ignore_changes = [
-      tags.business_unit,
-      tags.environment,
-      tags.product,
-      tags.subscription_type
+      tags["business_unit"],
+      tags["environment"],
+      tags["product"],
+      tags["subscription_type"]
     ]
   }
 }
@@ -22,10 +22,10 @@ resource "azurerm_nat_gateway" "this" {
   location            = var.rg.location
   lifecycle {
     ignore_changes = [
-      tags.business_unit,
-      tags.environment,
-      tags.product,
-      tags.subscription_type
+      tags["business_unit"],
+      tags["environment"],
+      tags["product"],
+      tags["subscription_type"]
     ]
   }
 }
