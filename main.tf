@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "this" {
-  name                = "${var.name}-public-ip"
+  name                = "${var.name}-nat-gateway"
   resource_group_name = var.rg.name
   location            = var.rg.location
   allocation_method   = "Static"
